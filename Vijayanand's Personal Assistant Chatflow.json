@@ -3,8 +3,8 @@
     {
       "id": "conversationalAgent_0",
       "position": {
-        "x": 1222.680306017294,
-        "y": -16.985347589601076
+        "x": 1711.307002253595,
+        "y": 154.2891968541286
       },
       "type": "customNode",
       "data": {
@@ -77,7 +77,10 @@
           }
         ],
         "inputs": {
-          "tools": "",
+          "tools": [
+            "{{calculator_0.data.instance}}",
+            "{{serpAPI_0.data.instance}}"
+          ],
           "model": "{{chatOpenAI_0.data.instance}}",
           "memory": "{{bufferMemory_0.data.instance}}",
           "systemMessage": "Assistant is a large language model trained by OpenAI.\n\nAssistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.\n\nAssistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.\n\nOverall, Assistant is a powerful system that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.",
@@ -97,19 +100,120 @@
         "selected": false
       },
       "width": 300,
-      "height": 439,
+      "height": 440,
       "selected": false,
       "positionAbsolute": {
-        "x": 1222.680306017294,
-        "y": -16.985347589601076
+        "x": 1711.307002253595,
+        "y": 154.2891968541286
+      },
+      "dragging": false
+    },
+    {
+      "id": "serpAPI_0",
+      "position": {
+        "x": 845.5776064000553,
+        "y": 386.01661875138194
+      },
+      "type": "customNode",
+      "data": {
+        "id": "serpAPI_0",
+        "label": "Serp API",
+        "version": 1,
+        "name": "serpAPI",
+        "type": "SerpAPI",
+        "baseClasses": [
+          "SerpAPI",
+          "Tool",
+          "StructuredTool",
+          "Runnable"
+        ],
+        "category": "Tools",
+        "description": "Wrapper around SerpAPI - a real-time API to access Google search results",
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "serpApi"
+            ],
+            "id": "serpAPI_0-input-credential-credential",
+            "display": true
+          }
+        ],
+        "inputAnchors": [],
+        "inputs": {},
+        "outputAnchors": [
+          {
+            "id": "serpAPI_0-output-serpAPI-SerpAPI|Tool|StructuredTool|Runnable",
+            "name": "serpAPI",
+            "label": "SerpAPI",
+            "description": "Wrapper around SerpAPI - a real-time API to access Google search results",
+            "type": "SerpAPI | Tool | StructuredTool | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 281,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 845.5776064000553,
+        "y": 386.01661875138194
+      },
+      "dragging": false
+    },
+    {
+      "id": "calculator_0",
+      "position": {
+        "x": 863.902250543295,
+        "y": 189.83513439434066
+      },
+      "type": "customNode",
+      "data": {
+        "id": "calculator_0",
+        "label": "Calculator",
+        "version": 1,
+        "name": "calculator",
+        "type": "Calculator",
+        "baseClasses": [
+          "Calculator",
+          "Tool",
+          "StructuredTool",
+          "Runnable"
+        ],
+        "category": "Tools",
+        "description": "Perform calculations on response",
+        "inputParams": [],
+        "inputAnchors": [],
+        "inputs": {},
+        "outputAnchors": [
+          {
+            "id": "calculator_0-output-calculator-Calculator|Tool|StructuredTool|Runnable",
+            "name": "calculator",
+            "label": "Calculator",
+            "description": "Perform calculations on response",
+            "type": "Calculator | Tool | StructuredTool | Runnable"
+          }
+        ],
+        "outputs": {},
+        "selected": false
+      },
+      "width": 300,
+      "height": 149,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 863.902250543295,
+        "y": 189.83513439434066
       },
       "dragging": false
     },
     {
       "id": "chatOpenAI_0",
       "position": {
-        "x": 658.965488710245,
-        "y": -134.71963142356054
+        "x": 1210.674119052753,
+        "y": 60.69883059934011
       },
       "type": "customNode",
       "data": {
@@ -300,7 +404,7 @@
               "allowImageUploads": true
             },
             "id": "chatOpenAI_0-input-imageResolution-options",
-            "display": false
+            "display": true
           },
           {
             "label": "Reasoning",
@@ -379,7 +483,7 @@
         "inputs": {
           "cache": "",
           "modelName": "gpt-4o-mini",
-          "temperature": 0.9,
+          "temperature": "0.5",
           "streaming": true,
           "maxTokens": "",
           "topP": "",
@@ -391,7 +495,7 @@
           "basepath": "",
           "proxyUrl": "",
           "baseOptions": "",
-          "allowImageUploads": "",
+          "allowImageUploads": true,
           "imageResolution": "low",
           "reasoning": "",
           "reasoningEffort": "",
@@ -410,19 +514,19 @@
         "selected": false
       },
       "width": 300,
-      "height": 674,
+      "height": 770,
       "selected": false,
       "positionAbsolute": {
-        "x": 658.965488710245,
-        "y": -134.71963142356054
+        "x": 1210.674119052753,
+        "y": 60.69883059934011
       },
       "dragging": false
     },
     {
       "id": "bufferMemory_0",
       "position": {
-        "x": 813.3664605537928,
-        "y": 459.3423451186656
+        "x": 846.135217712652,
+        "y": -120.3818780620773
       },
       "type": "customNode",
       "data": {
@@ -478,11 +582,11 @@
         "selected": false
       },
       "width": 300,
-      "height": 256,
+      "height": 257,
       "selected": false,
       "positionAbsolute": {
-        "x": 813.3664605537928,
-        "y": 459.3423451186656
+        "x": 846.135217712652,
+        "y": -120.3818780620773
       },
       "dragging": false
     }
@@ -495,6 +599,22 @@
       "targetHandle": "conversationalAgent_0-input-model-BaseChatModel",
       "type": "buttonedge",
       "id": "chatOpenAI_0-chatOpenAI_0-output-chatOpenAI-ChatOpenAI|BaseChatOpenAI|BaseChatModel|BaseLanguageModel|Runnable-conversationalAgent_0-conversationalAgent_0-input-model-BaseChatModel"
+    },
+    {
+      "source": "calculator_0",
+      "sourceHandle": "calculator_0-output-calculator-Calculator|Tool|StructuredTool|Runnable",
+      "target": "conversationalAgent_0",
+      "targetHandle": "conversationalAgent_0-input-tools-Tool",
+      "type": "buttonedge",
+      "id": "calculator_0-calculator_0-output-calculator-Calculator|Tool|StructuredTool|Runnable-conversationalAgent_0-conversationalAgent_0-input-tools-Tool"
+    },
+    {
+      "source": "serpAPI_0",
+      "sourceHandle": "serpAPI_0-output-serpAPI-SerpAPI|Tool|StructuredTool|Runnable",
+      "target": "conversationalAgent_0",
+      "targetHandle": "conversationalAgent_0-input-tools-Tool",
+      "type": "buttonedge",
+      "id": "serpAPI_0-serpAPI_0-output-serpAPI-SerpAPI|Tool|StructuredTool|Runnable-conversationalAgent_0-conversationalAgent_0-input-tools-Tool"
     },
     {
       "source": "bufferMemory_0",
